@@ -5,7 +5,7 @@ export default class PostService {
   }
 
   async getPosts(userid) {
-    const query = userid ? `userid=${userid}` : "";
+    const query = userid ? `?userid=${userid}` : "";
     return this.http.fetch(`/post${query}`, {
       method: "GET",
       headers: this.getHeaders(),

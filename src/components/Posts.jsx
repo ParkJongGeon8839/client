@@ -40,7 +40,7 @@ const Posts = memo(({ postService, userid, addable }) => {
       )
       .catch((error) => error.toString());
 
-  const onUseridClick = (post) => history.push(`/${post.userid}`);
+  const onUseridClick = (post) => history(`/${post.userid}`);
 
   const onError = (error) => {
     setError(error.toString());

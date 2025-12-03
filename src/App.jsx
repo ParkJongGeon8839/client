@@ -8,20 +8,20 @@ import { useAuth } from "./context/AuthContext";
 
 function App({ postService }) {
   const history = useNavigate();
-  const { user, logout } = useAuth();
+  const { user, logOut } = useAuth();
 
   const onAllPosts = () => {
-    history.push("/");
+    history("/");
   };
 
   const onMyPosts = () => {
-    history.push(`/${userHistory.userid}`);
+    history(`/${user.userid}`);
   };
 
-  const onLogout = () => {
+  const onlogOut = () => {
     if (window.confirm("로그아웃을 하시겠습니까?")) {
-      logout();
-      history.push("/");
+      logOut();
+      history("/");
     }
   };
 
@@ -29,7 +29,7 @@ function App({ postService }) {
     <div className="app">
       <Header
         userid={user.userid}
-        onLogout={onLogout}
+        onLogout={onlogOut}
         onAllPosts={onAllPosts}
         onMyPosts={onMyPosts}
       ></Header>
